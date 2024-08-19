@@ -1,3 +1,3 @@
 <template>
-  <p class="text-red-900">Welcome</p>
+  <RouterView />
 </template>
