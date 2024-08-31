@@ -12,15 +12,20 @@ tauri-build = { version = "1.5", features = [] }
 [dependencies]
 serde_json = "1"
 serde = { version = "1", features = ["derive"] }
-tauri = { version = "1.6", features = ["api-all"] }
-rusqlite = { version = "0.32", features = ["bundled"] }
-webrtc = "0.11"
-chacha20poly1305 = { version = "0.10.1", features = ["std"] }
 
-[features]
-# by default Tauri runs in production mode
-# when `tauri dev` runs it is executed with `cargo run --no-default-features` if `devPath` is an URL
-default = [ "custom-protocol" ]
-# this feature is used used for production builds where `devPath` points to the filesystem
-# DO NOT remove this
-custom-protocol = [ "tauri/custom-protocol" ]
+tauri = { version = "1.6", features = ["api-all", "custom-protocol"] }
+
+# Related to database.
+rusqlite = { version = "0.32", features = ["bundled"] }
+chacha20poly1305 = { version = "0.10.1", features = ["std"] } # encryption at rest.
+
+# Related to telecommunication.
+webrtc = "0.11"
+tungstenite = { version = "0.24", features = ["rustls", "rustls-native-certs"] }
+jsonwebtoken = "9.3"
+
+# Related to cryptography.
+double-ratchet = "0.1.0"
+x25519-dalek = "2.0.1"
+clear_on_drop = "0.2.5"
+generic-array = "1"
