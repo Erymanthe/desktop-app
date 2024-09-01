@@ -18,11 +18,10 @@ tauri = { version = "1.6", features = ["api-all", "custom-protocol"] }
 # Related to database.
 rusqlite = { version = "0.32", features = ["bundled"] }
 chacha20poly1305 = { version = "0.10.1", features = ["std"] } # encryption at rest.
+keyring = { version = "3", features = ["apple-native", "windows-native", "sync-secret-service"] } # save local keys.
 
 # Related to telecommunication.
-webrtc = "0.11"
-tungstenite = { version = "0.24", features = ["rustls", "rustls-native-certs"] }
-jsonwebtoken = "9.3"
+libturms = { git = "https://github.com/TurmsApp/libturms" }
 
 # Related to cryptography.
 double-ratchet = "0.1.0"
