@@ -1,1 +1,0 @@
-//! Create a signle connection to SQLite db.
