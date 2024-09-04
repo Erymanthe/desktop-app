@@ -1,24 +1,9 @@
 //! User model.
 
 use super::keys::Keys;
-use serde::{Serialize, Deserialize};
-
-/// JWT claims.
-#[derive(Clone, Debug, Serialize, Deserialize)]
-struct Claims {
-    #[serde(rename = "aud")]
-    audience: String,
-    #[serde(rename = "exp")]
-    expire_at: usize,
-    #[serde(rename = "iat")]
-    issued_at: usize,
-    #[serde(rename = "iss")]
-    issuer: String,
-    #[serde(rename = "nbf")]
-    not_before: usize,
-    #[serde(rename = "sub")]
-    subject: String,
-}
+use chrono::serde::ts_milliseconds;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Serialize, Deserialize)]
 /// Represents receiver and sender.
@@ -27,8 +12,13 @@ pub struct User {
     pub id: String,
     /// Public name.
     pub username: String,
+    /// Public profile picture.
+    pub avatar: Option<String>,
+    /// Date on which the two users first communicated.
+    #[serde(with = "ts_milliseconds")]
+    pub relation: DateTime<Utc>,
     /// If user is sender.
-    /// JsonWebToken (JWT) plain string. 
+    /// JsonWebToken (JWT) plain string.
     pub token: Option<String>,
     /// Public and private (if user is sender) keys.
     #[serde(skip_serializing, skip_deserializing)]
