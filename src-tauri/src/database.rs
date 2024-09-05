@@ -82,7 +82,7 @@ impl Database {
     pub fn create_tables(&self) -> Result<()> {
         self.connection.execute(
             "CREATE TABLE users (
-                id       TEXT PRIMARY KEY,
+                id       INTEGER PRIMARY KEY AUTOINCREMENT,
                 username TEXT NOT NULL,
                 avatar   TEXT,
                 relation INTEGER NOT NULL,
