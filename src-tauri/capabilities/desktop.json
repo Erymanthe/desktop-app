@@ -1,0 +1,18 @@
+{
+  "identifier": "desktop-capability",
+  "platforms": [
+    "macOS",
+    "windows",
+    "linux"
+  ],
+  "permissions": [
+    "global-shortcut:default",
+    "stronghold:allow-create-client",
+    "stronghold:allow-get-store-record",
+    "stronghold:allow-initialize",
+    "stronghold:allow-load-client",
+    "stronghold:allow-remove-store-record",
+    "stronghold:allow-save",
+    "stronghold:allow-save-store-record"
+  ]
+}
