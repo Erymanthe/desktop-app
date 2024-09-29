@@ -1,65 +1,61 @@
 {
-  "package": {
-    "productName": "Turms",
-    "version": "0.1.0"
-  },
-  "build": {
-    "distDir": "../dist",
-    "devPath": "http://localhost:1420",
-    "beforeDevCommand": "pnpm vite:dev",
-    "beforeBuildCommand": "pnpm vite:build"
-  },
-  "tauri": {
-    "bundle": {
-      "active": true,
-      "targets": "all",
-      "identifier": "com.gravitalia.turms.desktop",
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ],
-      "resources": [],
-      "externalBin": [],
-      "copyright": "",
-      "category": "DeveloperTool",
-      "shortDescription": "Peer-to-peer messaging service.",
-      "longDescription": "Turms, a PoC of decentralized chat service.",
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "timestampUrl": ""
+    },
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "resources": [],
+    "externalBin": [],
+    "copyright": "",
+    "category": "DeveloperTool",
+    "shortDescription": "Peer-to-peer messaging service.",
+    "longDescription": "Turms, a PoC of decentralized chat service.",
+    "macOS": {
+      "frameworks": [],
+      "exceptionDomain": "",
+      "signingIdentity": null,
+      "providerShortName": null,
+      "entitlements": null
+    },
+    "linux": {
       "deb": {
         "depends": []
-      },
-      "macOS": {
-        "frameworks": [],
-        "exceptionDomain": "",
-        "signingIdentity": null,
-        "providerShortName": null,
-        "entitlements": null
-      },
-      "windows": {
-        "certificateThumbprint": null,
-        "digestAlgorithm": "sha256",
-        "timestampUrl": ""
       }
-    },
-    "updater": {
-      "active": false
-    },
-    "allowlist": {
-      "all": true
+    }
+  },
+  "build": {
+    "beforeBuildCommand": "pnpm vite:build",
+    "frontendDist": "../dist",
+    "beforeDevCommand": "pnpm vite:dev",
+    "devUrl": "http://localhost:1420"
+  },
+  "productName": "Turms",
+  "mainBinaryName": "Turms",
+  "version": "0.1.0",
+  "identifier": "com.gravitalia.turms.desktop",
+  "plugins": {},
+  "app": {
+    "security": {
+      "csp": null
     },
     "windows": [
       {
         "title": "Turms",
-        "width": 800,
-        "height": 600,
+        "width": 1400,
+        "height": 800,
         "resizable": true,
         "fullscreen": false
       }
-    ],
-    "security": {
-      "csp": null
-    }
+    ]
   }
 }
